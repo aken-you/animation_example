@@ -70,18 +70,24 @@
       const translateRadio = document.getElementById("translate");
       const targetElement = document.getElementById("target");
 
-      topleftRadio.addEventListener("change", function () {
-        if (topleftRadio.checked) {
+      topleftRadio.addEventListener("click", function ({ target }) {
+        if (target.checked) {
           targetElement.classList.add("topleft");
+          targetElement.classList.remove("translate");
         } else {
+          targetElement.classList.add("translate");
           targetElement.classList.remove("topleft");
         }
+
+        console.log("topleft" + topleftRadio.checked);
       });
 
-      translateRadio.addEventListener("change", function () {
-        if (translateRadio.checked) {
+      translateRadio.addEventListener("click", function ({ target }) {
+        if (target.checked) {
           targetElement.classList.add("translate");
+          targetElement.classList.remove("topleft");
         } else {
+          targetElement.classList.add("topleft");
           targetElement.classList.remove("translate");
         }
       });
